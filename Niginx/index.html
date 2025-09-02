@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Welcome | Placeholder Site</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.container {
+			background: rgba(255,255,255,0.95);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			border-radius: 20px;
+			padding: 40px 32px;
+			max-width: 400px;
+			text-align: center;
+		}
+		h1 {
+			color: #2193b0;
+			font-size: 2.5rem;
+			margin-bottom: 16px;
+		}
+		p {
+			color: #333;
+			font-size: 1.1rem;
+			margin-bottom: 24px;
+		}
+		.btn {
+			display: inline-block;
+			padding: 12px 32px;
+			background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+			color: #fff;
+			border: none;
+			border-radius: 30px;
+			font-size: 1rem;
+			font-weight: 600;
+			cursor: pointer;
+			box-shadow: 0 2px 8px rgba(33,147,176,0.15);
+			transition: background 0.3s, transform 0.2s;
+		}
+		.btn:hover {
+			background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+			transform: translateY(-2px) scale(1.04);
+		}
+		.logo {
+			width: 64px;
+			height: 64px;
+			margin-bottom: 20px;
+		}
+		@media (max-width: 500px) {
+			.container {
+				padding: 24px 8px;
+				max-width: 95vw;
+			}
+			h1 {
+				font-size: 2rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<svg class="logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="32" cy="32" r="32" fill="#2193b0"/>
+			<text x="32" y="40" text-anchor="middle" fill="#fff" font-size="2rem" font-family="Segoe UI, Arial" font-weight="bold">N</text>
+		</svg>
+		<h1>Welcome!</h1>
+		<p>This is a placeholder website.<br>Get started by editing <strong>index.html</strong> and building your project.</p>
+		<a href="#" class="btn">Learn More</a>
+	</div>
+</body>
+</html>
