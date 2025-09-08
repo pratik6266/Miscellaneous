@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    restart: unless-stopped
+    networks:
+      - app-network
+  # Example: Environment variables (all types)
+  # environment:
+  #   - SIMPLE_ENV=example
+  #   - ANOTHER_ENV=123
+  #   ENV_FILE_VAR: ${ENV_FILE_VAR}
+  # env_file:
+  #   - ./Backend/.env
+  # Example: Volumes (all types)
+  # volumes:
+  #   - ./host/path:/container/path           # Bind mount
+  #   - backend-data:/container/data          # Named volume
+  #   - /absolute/host/path:/container/path   # Absolute path
+  #   - type: volume
+  #     source: backend-data
+  #     target: /container/data
+  #     volume:
+  #       nocopy: true
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - app-network
+  # Example: Environment variables (all types)
+  # environment:
+  #   - SIMPLE_ENV=example
+  #   - ANOTHER_ENV=123
+  #   ENV_FILE_VAR: ${ENV_FILE_VAR}
+  # env_file:
+  #   - ./Frontend/.env
+  # Example: Volumes (all types)
+  # volumes:
+  #   - ./host/path:/container/path           # Bind mount
+  #   - frontend-data:/container/data         # Named volume
+  #   - /absolute/host/path:/container/path   # Absolute path
+  #   - type: volume
+  #     source: frontend-data
+  #     target: /container/data
+  #     volume:
+  #       nocopy: true
+
+networks:
+  app-network:
+    driver: bridge
+  # Example: Named volumes declaration
+volumes:
+  # backend-data:
+  # frontend-data:
