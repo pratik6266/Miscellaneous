@@ -1,15 +1,18 @@
-minikube start/delete 
-minikube status
+minikube start/delete  // start or delete minikube cluster
+minikube status        // check status of minikube cluster
+minikube stop         // stop minikube cluster
 
-minikube dashboard
-minikube ip
+minikube dashboard    // open minikube dashboard in browser
+minikube addons list  // list all available addons
+minikube ip            // get minikube cluster ip address
 
-kubectl create deployment
-kubectl get deployment
-kubectl get pots
-kubectl delete deployment
+kubectl create deployment    // create a deployment
+kubectl get deployment       // get all deployments
+kubectl get pots             // get all pods
+kubectl delete deployment      // delete a deployment
 
 
-kubectl expose deployment my-app --type=LoadBalancer --port=8080
-minikube service my-app 
-kubectl ger services
+kubectl expose deployment my-app --type=LoadBalancer --port=8080 // expose deployment as a service
+minikube service my-app   // access the service in browser 
+kubectl ger services     // get all services
+kubectl delete service my-app  // delete a service
