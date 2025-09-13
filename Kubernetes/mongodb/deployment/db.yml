@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-app
+  template:
+    metadata: 
+      labels:
+        app: db-app
+    spec:
+      containers:
+      - name: db-app
+        image: mongo
+        ports:
+          - containerPort: 27017
+        volumeMounts:
+          - mountPath: /data/db
+            name: mongo-storage
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: mongo-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-mongodb
+spec:
+  type: ClusterIP   # Change to NodePort if you want external access
+  ports:
+    - name: mongo
+      port: 27017
+      targetPort: 27017
+  selector:
+    app: db-app
