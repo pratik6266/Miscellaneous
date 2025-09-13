@@ -6,7 +6,8 @@ minikube dashboard    // open minikube dashboard in browser
 minikube addons list  // list all available addons
 minikube ip            // get minikube cluster ip address
 
-kubectl create deployment --image=<image>    // create a deployment
+
+kubectl create deployment --image=<image>    // create a 
 kubectl get deployment       // get all deployments
 kubectl get pots             // get all pods
 kubectl delete deployment      // delete a deployment
@@ -16,6 +17,7 @@ kubectl expose deployment my-app --type=LoadBalancer --port=8080 // expose deplo
 minikube service my-app   // access the service in browser 
 kubectl ger services     // get all services
 kubectl delete service my-app  // delete a service
+
 kubectl set image deployment my-react3 personal=pratik32/personal:04 // change image of running pod
 
 kubectl rollout status deployment my-react3 // check status of rollout
