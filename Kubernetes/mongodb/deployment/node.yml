@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodedb-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodedb-app
+  template:
+    metadata: 
+      labels:
+        app: nodedb-app
+    spec:
+      containers:
+      - name: nodedb-app
+        image: pratik32/personal:06
+        ports:
+          - containerPort: 3000
+        env:
+          - name: HOST
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                key: HOST
+          - name: PORTDB
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                key: PORTDB
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-node-app
+spec:
+  type: LoadBalancer   # Use NodePort if running locally
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: nodedb-app
